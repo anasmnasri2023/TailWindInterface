@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <img src="logo.png" alt="Vita Eats" class="h-12">
+            <div class="relative flex items-center">
+                <input type="text" placeholder="search food" class="border rounded-lg p-2 text-sm w-64 pl-6">
+                <button class="absolute right-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="flex gap-8 items-center">
+            <a href="#" class="text-gray-700">Home</a>
+            <a href="#" class="text-gray-700">About US</a>
+            <a href="#" class="text-gray-700">Log In</a>
+            <a href="#" class="text-gray-700">Customise</a>
+            <div class="flex gap-4">
+                <button class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </button>
+                <button class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none" />
+                        <path stroke="currentColor" stroke-width="2" d="M6 18a6 6 0 0112 0" />
+                    </svg>
+                </button>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tabs -->
+    <div class="flex justify-center gap-4 mt-6">
+        <button class="bg-gray-200 px-4 py-2 rounded-lg">Overview</button>
+        <button class="bg-gray-200 px-4 py-2 rounded-lg">History</button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded-lg">Calculator</button>
+        <button class="bg-gray-200 px-4 py-2 rounded-lg" onclick="window.location.href='Order.html'">Order</button>
+    </div>
+
+    <!-- Shipping Calculator -->
+    <div class="max-w-xl mx-auto bg-beige-200 p-6 rounded-lg shadow-lg mt-8">
+        <h2 class="text-2xl font-semibold text-center">Shipping Calculator</h2>
+        
+        <div class="mt-4">
+            <label class="block font-medium">Delivery area <span class="text-red-500"><i class="fas fa-map-marker-alt"></i></span></label>
+            <select class="w-full p-2 border rounded-lg">
+                <option>City center (0-5 Km)</option>
+            </select>
+        </div>
+
+        <div class="mt-4">
+            <label class="block font-medium">Order Amount (TND) <span class="text-green-500">💰</span></label>
+            <input type="text" placeholder="Enter the amount" class="w-full p-2 border rounded-lg">
+        </div>
+
+        <div class="mt-4">
+            <label class="block font-medium">Delivery time <span class="text-blue-500">⏰</span></label>
+            <input type="text" value="11h00-13h00" class="w-full p-2 border rounded-lg">
+        </div>
+
+        <button class="bg-green-600 text-white w-full py-2 rounded-lg mt-6 hover:bg-green-700">
+            Calculate shipping costs
+        </button>
+    </div>
+
+    <!-- Estimated Costs -->
+    <div class="max-w-xl mx-auto bg-green-100 p-6 rounded-lg shadow-md mt-6 text-center">
+        <h3 class="text-xl font-bold text-green-700">Estimated Shipping Costs</h3>
+        <p class="text-2xl font-semibold text-green-600 mt-2">16,50 TND</p>
+        <p class="text-sm text-gray-600 mt-2">Your healthy meals will be delivered at their optimum freshness</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-10 py-8">
+        <div class="max-w-5xl mx-auto grid grid-cols-3 gap-12 px-4">
+            <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">About us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Team</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Contact</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Help & Support</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Partner with us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Ride with us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Refund & Cancellation</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto mt-8 border-t border-gray-700 pt-6 px-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-sm text-gray-400">All rights Reserved © <span class="font-semibold">VitaEat</span>, 2025</p>
+                </div>
+                <div class="text-right">
+                    <h5 class="font-medium text-sm mb-2">FOLLOW US</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
