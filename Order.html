@@ -12,9 +12,9 @@
     <!-- Navbar -->
     <nav class="bg-white shadow-md p-4 flex justify-between items-center">
         <div class="flex items-center gap-4">
-            <img src="logo.png" alt="Vita Eats" class="h-12">
+            <img src="public/vitaeats.png" alt="Vita Eats" class="h-12">
             <div class="relative flex items-center">
-                <input type="text" placeholder="search food" class="border rounded-lg p-2 text-sm w-64 pl-6">
+                <input type="text" id="searchInput" placeholder="search food" class="border rounded-lg p-2 text-sm w-64 pl-6" oninput="searchOrders()">
                 <button class="absolute right-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -40,8 +40,6 @@
                         <path stroke="currentColor" stroke-width="2" d="M6 18a6 6 0 0112 0" />
                     </svg>
                 </button>
-                
-                
             </div>
         </div>
     </nav>
@@ -56,13 +54,40 @@
 
     <!-- Add More Button -->
     <div class="max-w-5xl mx-auto mt-6">
-        <button class="bg-green-600 text-white px-4 py-2 rounded-lg">Add more</button>
+        <button class="bg-green-600 text-white px-4 py-2 rounded-lg" onclick="showAddOrderForm()">Add more</button>
+    </div>
+
+    <!-- Add Order Form -->
+    <div id="addOrderForm" class="max-w-5xl mx-auto mt-6 hidden">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold">Add New Order</h3>
+            <label class="block mt-4">Name:</label>
+            <input type="text" id="orderName" class="border rounded-lg p-2 w-full mt-2">
+            
+            <label class="block mt-4">Time (min):</label>
+            <select id="orderTime" class="border rounded-lg p-2 w-full mt-2">
+                <option value="0-5min">0-5min</option>
+                <option value="5-10min">5-10min</option>
+                <option value="10-15min">10-15min</option>
+                <option value="15-20min">15-20min</option>
+                <option value="20-25min">20-25min</option>
+                <option value="25-30min">25-30min</option>
+            </select>
+
+            <label class="block mt-4">Price (TND):</label>
+            <input type="text" id="orderPrice" class="border rounded-lg p-2 w-full mt-2">
+
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg mt-4" onclick="addOrder()">Add Order</button>
+            <button class="bg-red-600 text-white px-4 py-2 rounded-lg mt-4" onclick="closeAddOrderForm()">Cancel</button>
+        </div>
     </div>
 
     <!-- Order List -->
-    <div class="max-w-5xl mx-auto mt-6 space-y-4">
+    <div class="max-w-5xl mx-auto mt-6 space-y-4" id="orderList">
+        <!-- Order List -->
+    <div class="max-w-5xl mx-auto mt-6 space-y-4" id="orderList">
         <!-- Order Item -->
-        <div class="flex items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="order-item flex items-center bg-white p-4 rounded-lg shadow-md" data-name="Protein Bowl" data-price="46,25" data-time="15-20">
             <img src="public/protein-bowl.jpg" alt="Protein Bowl" class="h-16 w-16 rounded-lg">
             <div class="ml-4 flex-1">
                 <h3 class="text-lg font-semibold">Protein Bowl</h3>
@@ -71,7 +96,7 @@
             <p class="text-lg font-semibold">46,25 TND</p>
         </div>
 
-        <div class="flex items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="order-item flex items-center bg-white p-4 rounded-lg shadow-md" data-name="Mediterranean Salad" data-price="48,73" data-time="10-15">
             <img src="public/mediterranean-salad.jpg" alt="Mediterranean Salad" class="h-16 w-16 rounded-lg">
             <div class="ml-4 flex-1">
                 <h3 class="text-lg font-semibold">Mediterranean Salad</h3>
@@ -80,7 +105,7 @@
             <p class="text-lg font-semibold">48,73 TND</p>
         </div>
 
-        <div class="flex items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="order-item flex items-center bg-white p-4 rounded-lg shadow-md" data-name="Caesar Salad" data-price="39,64" data-time="20-25">
             <img src="public/caesar-salad.jpg" alt="Caesar Salad" class="h-16 w-16 rounded-lg">
             <div class="ml-4 flex-1">
                 <h3 class="text-lg font-semibold">Caesar Salad</h3>
@@ -89,7 +114,7 @@
             <p class="text-lg font-semibold">39,64 TND</p>
         </div>
 
-        <div class="flex items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="order-item flex items-center bg-white p-4 rounded-lg shadow-md" data-name="Salmon Poke Bowl" data-price="52,86" data-time="30-35">
             <img src="public/salmon-poke-bowl.jpg" alt="Salmon Poke Bowl" class="h-16 w-16 rounded-lg">
             <div class="ml-4 flex-1">
                 <h3 class="text-lg font-semibold">Salmon Poke Bowl</h3>
@@ -98,7 +123,7 @@
             <p class="text-lg font-semibold">52,86 TND</p>
         </div>
 
-        <div class="flex items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="order-item flex items-center bg-white p-4 rounded-lg shadow-md" data-name="Green Detox Bowl" data-price="29,72" data-time="40-45">
             <img src="public/green-detox-bowl.jpg" alt="Green Detox Bowl" class="h-16 w-16 rounded-lg">
             <div class="ml-4 flex-1">
                 <h3 class="text-lg font-semibold">Green Detox Bowl</h3>
@@ -108,6 +133,69 @@
         </div>
     </div>
 
+        <!-- Order Items will appear here -->
+    </div>
+
+    <script>
+        function searchOrders() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const orders = document.querySelectorAll('.order-item');
+            
+            orders.forEach(order => {
+                const name = order.getAttribute('data-name').toLowerCase();
+                const price = order.getAttribute('data-price');
+                const time = order.getAttribute('data-time');
+                
+                if (name.includes(input) || price.includes(input) || time.includes(input)) {
+                    order.style.display = 'flex';
+                } else {
+                    order.style.display = 'none';
+                }
+            });
+        }
+
+        function showAddOrderForm() {
+            document.getElementById('addOrderForm').classList.remove('hidden');
+        }
+
+        function closeAddOrderForm() {
+            document.getElementById('addOrderForm').classList.add('hidden');
+        }
+
+        function addOrder() {
+            const name = document.getElementById('orderName').value;
+            const time = document.getElementById('orderTime').value;
+            const price = document.getElementById('orderPrice').value;
+
+            if (name && time && price) {
+                const orderList = document.getElementById('orderList');
+                const newOrder = document.createElement('div');
+                newOrder.classList.add('order-item', 'flex', 'items-center', 'bg-white', 'p-4', 'rounded-lg', 'shadow-md');
+                newOrder.setAttribute('data-name', name);
+                newOrder.setAttribute('data-price', price);
+                newOrder.setAttribute('data-time', time);
+
+                const randomImage = Math.floor(Math.random() * 3) + 1; // Random image between 1 and 3
+                const imageSrc = `public/${randomImage}.jpg`;
+
+                newOrder.innerHTML = `
+                    <img src="${imageSrc}" alt="${name}" class="h-16 w-16 rounded-lg">
+                    <div class="ml-4 flex-1">
+                        <h3 class="text-lg font-semibold">${name}</h3>
+                        <p class="text-sm text-gray-600 flex items-center">⏳ ${time}</p>
+                    </div>
+                    <p class="text-lg font-semibold">${price} TND</p>
+                `;
+                orderList.appendChild(newOrder);
+
+                // Reset form and close it
+                document.getElementById('orderName').value = '';
+                document.getElementById('orderPrice').value = '';
+                closeAddOrderForm();
+            }
+        }
+    </script>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-10 py-8">
         <div class="max-w-5xl mx-auto grid grid-cols-3 gap-12 px-4">
@@ -115,52 +203,27 @@
                 <h4 class="font-semibold mb-4">Company</h4>
                 <ul class="space-y-2">
                     <li><a href="#" class="text-gray-300 hover:text-white">About us</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Team</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4">Contact</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-300 hover:text-white">Help & Support</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Partner with us</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Ride with us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4">Legal</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-300 hover:text-white">Terms & Conditions</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Refund & Cancellation</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Contact us</a></li>
                     <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Cookie Policy</a></li>
                 </ul>
             </div>
-        </div>
-        
-        <div class="max-w-5xl mx-auto mt-8 border-t border-gray-700 pt-6 px-4">
-            <div class="flex justify-between items-center">
-                <div>
-                    <p class="text-sm text-gray-400">All rights Reserved © <span class="font-semibold">VitaEat</span>, 2025</p>
-                </div>
-                <div class="text-right">
-                    <h5 class="font-medium text-sm mb-2">FOLLOW US</h5>
-                    <div class="flex gap-4">
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>
+            <div>
+                <h4 class="font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Order Online</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Customise Meals</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Restaurant Partners</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Follow Us</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
