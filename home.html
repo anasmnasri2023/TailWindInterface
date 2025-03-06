@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VitaEats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#F2EFE7] text-gray-900">
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <img src="./images/vitaeats.jpg" alt="Vita Eats" class="h-12" />
+        <div class="relative flex items-center">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="search food"
+            class="border rounded-lg p-2 text-sm w-64 pl-6"
+            oninput="searchOrders()"
+          />
+          <button class="absolute right-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="flex gap-8 items-center">
+        <a href="#" class="text-gray-700">Home</a>
+        <a href="#" class="text-gray-700">About US</a>
+        <a href="#" class="text-gray-700">Log In</a>
+        <a href="#" class="text-gray-700">Customise</a>
+        <div class="flex gap-4">
+          <button class="relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <circle
+                cx="12"
+                cy="10"
+                r="3"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                stroke="currentColor"
+                stroke-width="2"
+                d="M6 18a6 6 0 0112 0"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="py-20 bg-[#5D8736] text-white flex items-center justify-between px-20 relative h-[500px]"
+    >
+      <div class="max-w-xl">
+        <h2 class="text-6xl font-bold">welcome to VitaEats</h2>
+        <p class="text-3xl font-semibold mt-4">Are you starving?</p>
+
+        <!-- Search Box Container -->
+        <div
+          class="mt-8 bg-white p-5 rounded-lg shadow-md flex flex-col w-[550px]"
+        >
+          <!-- Delivery & Pickup Options (On Top) -->
+          <div class="flex items-center gap-4">
+            <button
+              class="flex items-center gap-2 text-[#5D8736] font-semibold bg-[#F8F5F0] px-5 py-2 rounded-md border border-[#5D8736]"
+            >
+              🚲 Delivery
+            </button>
+            <button class="text-gray-500 font-medium px-5 py-2">Pickup</button>
+          </div>
+
+          <!-- Input & Search Button (Below Delivery & Pickup) -->
+          <div class="flex w-full items-center mt-4">
+            <input
+              type="text"
+              placeholder="Enter Your Address"
+              class="px-4 py-3 flex-1 text-gray-700 outline-none bg-transparent rounded-l-lg border border-gray-300"
+            />
+            <button
+              class="bg-[#5D8736] text-white px-6 py-3 rounded-r-lg font-semibold"
+            >
+              🔍 Find Food
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salad Image (Right Side) -->
+      <img src="./images/salad.jpg" alt="Salad Bowl" class="w-72" />
+    </section>
+
+    <section class="py-12 px-6 bg-white">
+      <h3 class="text-3xl font-bold text-center">Promotion</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+          <img
+            src="./images/paella.jpg"
+            alt="Paella"
+            class="w-full h-40 object-cover rounded"
+          />
+          <div class="text-[#5D8736] font-bold text-lg mt-2">25% Off</div>
+          <p class="text-gray-700">paella</p>
+          <span class="text-[#A9C46C] font-bold">6 Days Remaining</span>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+          <img
+            src="./images/paella.jpg"
+            alt="Bean Salad"
+            class="w-full h-40 object-cover rounded"
+          />
+          <div class="text-[#5D8736] font-bold text-lg mt-2">25% Off</div>
+          <p class="text-gray-700">bean salad</p>
+          <span class="text-[#A9C46C] font-bold">3 Days Remaining</span>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+          <img
+            src="./images/paella.jpg"
+            alt="Broccoli Salad"
+            class="w-full h-40 object-cover rounded"
+          />
+          <div class="text-[#5D8736] font-bold text-lg mt-2">25% Off</div>
+          <p class="text-gray-700">broccoli salad</p>
+          <span class="text-[#A9C46C] font-bold">5 Days Remaining</span>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+          <img
+            src="./images/paella.jpg"
+            alt="Honey Garlic Chicken"
+            class="w-full h-40 object-cover rounded"
+          />
+          <div class="text-[#5D8736] font-bold text-lg mt-2">25% Off</div>
+          <p class="text-gray-700">honey garlic chicken</p>
+          <span class="text-[#A9C46C] font-bold">4 Days Remaining</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 bg-[#F2EFE7]">
+      <h3 class="text-3xl font-bold text-center">Popular Items</h3>
+      <div class="flex items-center justify-between">
+        <button class="text-[#0C9454] text-xl">&#10094;</button>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mt-6">
+          <!-- Item 1 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="./images/Turkey-Gyros.jpg"
+              alt="Turkey Gyros"
+              class="w-full h-40 object-cover rounded"
+            />
+            <h4 class="text-xl font-bold mt-2">Turkey Gyros</h4>
+            <p class="text-gray-700">Ariana</p>
+            <span class="text-[#0C9454] font-bold">19.900 DT</span>
+            <div class="flex justify-between mt-2">
+              <button class="text-gray-500">&#9825;</button>
+              <button class="text-[#0C9454]">&#128722;</button>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="./images/Turkey-Gyros.jpg"
+              alt="Turkey Gyros"
+              class="w-full h-40 object-cover rounded"
+            />
+            <h4 class="text-xl font-bold mt-2">Turkey Gyros</h4>
+            <p class="text-gray-700">Ghazela</p>
+            <span class="text-[#0C9454] font-bold">19.000 DT</span>
+            <div class="flex justify-between mt-2">
+              <button class="text-gray-500">&#9825;</button>
+              <button class="text-[#0C9454]">&#128722;</button>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="./images/Turkey-Gyros.jpg"
+              alt="Turkey Gyros"
+              class="w-full h-40 object-cover rounded"
+            />
+            <h4 class="text-xl font-bold mt-2">Turkey Gyros</h4>
+            <p class="text-gray-700">Menzah 6</p>
+            <span class="text-[#0C9454] font-bold">20.000 DT</span>
+            <div class="flex justify-between mt-2">
+              <button class="text-gray-500">&#9825;</button>
+              <button class="text-[#0C9454]">&#128722;</button>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="./images/Turkey-Gyros.jpg"
+              alt="Turkey Gyros"
+              class="w-full h-40 object-cover rounded"
+            />
+            <h4 class="text-xl font-bold mt-2">Turkey Gyros</h4>
+            <p class="text-gray-700">Lac 2</p>
+            <span class="text-[#0C9454] font-bold">18.050 DT</span>
+            <div class="flex justify-between mt-2">
+              <button class="text-gray-500">&#9825;</button>
+              <button class="text-[#0C9454]">&#128722;</button>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="./images/Turkey-Gyros.jpg"
+              alt="Turkey Gyros"
+              class="w-full h-40 object-cover rounded"
+            />
+            <h4 class="text-xl font-bold mt-2">Turkey Gyros</h4>
+            <p class="text-gray-700">Ariana</p>
+            <span class="text-[#0C9454] font-bold">16.000 DT</span>
+            <div class="flex justify-between mt-2">
+              <button class="text-gray-500">&#9825;</button>
+              <button class="text-[#0C9454]">&#128722;</button>
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="./images/Turkey-Gyros.jpg"
+              alt="Turkey Gyros"
+              class="w-full h-40 object-cover rounded"
+            />
+            <h4 class="text-xl font-bold mt-2">Turkey Gyros</h4>
+            <p class="text-gray-700">Menzah 9</p>
+            <span class="text-[#0C9454] font-bold">21.500 DT</span>
+            <div class="flex justify-between mt-2">
+              <button class="text-gray-500">&#9825;</button>
+              <button class="text-[#0C9454]">&#128722;</button>
+            </div>
+          </div>
+        </div>
+        <button class="text-[#0C9454] text-xl">&#10095;</button>
+      </div>
+    </section>
+    <section class="py-16 px-8 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="text-4xl font-bold text-center">Best Deals</h3>
+        <div class="grid grid-cols-1 gap-8 mt-8">
+          <!-- First row: Description on left, Image on right -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="bg-[#F2EFE7] p-8 rounded-lg shadow-md flex flex-col justify-center"
+            >
+              <h4 class="text-2xl font-bold">
+                Best deals <span class="text-[#A9C46C]">Chicken thighs</span>
+              </h4>
+              <p class="text-gray-700 my-4 text-lg">
+                Enjoy the large size of chicken. Complete perfect slice of
+                chicken thighs.
+              </p>
+              <button
+                class="bg-[#5D8736] text-white px-6 py-3 mt-3 rounded w-36 text-lg"
+              >
+                Order Now
+              </button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <img
+                src="./images/Chicken-Thighs.jpg"
+                alt="Chicken Thighs"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Second row: Image on left, Description on right -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <img
+                src="./images/Chicken-Thighs.jpg"
+                alt="Chicken Thighs"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="bg-[#F2EFE7] p-8 rounded-lg shadow-md flex flex-col justify-center"
+            >
+              <h4 class="text-2xl font-bold text-center">
+                Best deals <span class="text-[#A9C46C]">Chicken thighs</span>
+              </h4>
+              <p class="text-gray-700 my-4 text-lg text-center">
+                Enjoy the large size of chicken. Complete perfect slice of
+                chicken thighs.
+              </p>
+              <div class="flex justify-center">
+                <button
+                  class="bg-[#5D8736] text-white px-6 py-3 mt-3 rounded w-36 text-lg"
+                >
+                  Order Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third row: Description on left, Image on right -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div
+              class="bg-[#F2EFE7] p-8 rounded-lg shadow-md flex flex-col justify-center"
+            >
+              <h4 class="text-2xl font-bold">
+                Best deals <span class="text-[#A9C46C]">Chicken thighs</span>
+              </h4>
+              <p class="text-gray-700 my-4 text-lg">
+                Enjoy the large size of chicken. Complete perfect slice of
+                chicken thighs.
+              </p>
+              <button
+                class="bg-[#5D8736] text-white px-6 py-3 mt-3 rounded w-36 text-lg"
+              >
+                Order Now
+              </button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <img
+                src="./images/Chicken-Thighs.jpg"
+                alt="Chicken Thighs"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-10 bg-[#F2EFE7] flex items-center justify-between">
+      <!-- Image on the left -->
+      <div class="w-1/2">
+        <img
+          src="./images/salad.jpg"
+          alt="Delicious Meal"
+          class="w-full h-auto rounded-lg"
+        />
+      </div>
+      <!-- Centered text and button on the right -->
+      <div class="w-1/2 flex flex-col items-center text-center px-10">
+        <h3 class="text-5xl font-bold mb-6 text-black">
+          Are you ready to order with the best deals?
+        </h3>
+        <button
+          class="bg-[#5D8736] text-white px-8 py-4 text-xl rounded-lg shadow-lg hover:bg-[#4A6F2B]"
+        >
+          Order Now
+        </button>
+      </div>
+    </section>
+  </body>
+  <footer class="bg-[#353535] text-white p-8 mt-10">
+    <div class="container mx-auto">
+      <!-- Grid for Footer Sections -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Company Section -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Team</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Careers</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Help & Support</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Partner with Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Ride with Us</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Legal Section -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Terms & Conditions</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Refund & Cancellation</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hover:text-[var(--light-green)] transition-colors"
+                >Cookie Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Follow Us Section -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-white hover:text-[var(--light-green)] transition-colors"
+              aria-label="Instagram"
+            >
+              <!-- Instagram SVG (White) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="white"
+              >
+                <path
+                  d="M12 2.163c3.4 0 3.75 0 4.95.07 1.25.07 2.33.44 3.16 1.28.83.83 1.21 1.91 1.28 3.16.07 1.2.07 1.55.07 4.95s0 3.75-.07 4.95c-.07 1.25-.44 2.33-1.28 3.16-.83.83-1.91 1.21-3.16 1.28-1.2.07-1.55.07-4.95.07s-3.75 0-4.95-.07c-1.25-.07-2.33-.44-3.16-1.28-.83-.83-1.21-1.91-1.28-3.16-.07-1.2-.07-1.55-.07-4.95s0-3.75.07-4.95c.07-1.25.44-2.33 1.28-3.16.83-.83 1.91-1.21 3.16-1.28 1.2-.07 1.55-.07 4.95-.07zm0 5.68c-3.45 0-6.26 2.81-6.26 6.26 0 3.45 2.81 6.26 6.26 6.26 3.45 0 6.26-2.81 6.26-6.26 0-3.45-2.81-6.26-6.26-6.26zm0 10.41c-2.27 0-4.12-1.85-4.12-4.12 0-2.27 1.85-4.12 4.12-4.12 2.27 0 4.12 1.85 4.12 4.12 0 2.27-1.85 4.12-4.12 4.12zM17.23 3.77a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-[var(--light-green)] transition-colors"
+              aria-label="Facebook"
+            >
+              <!-- Facebook SVG (White) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="white"
+              >
+                <path
+                  d="M22.675 0h-21.35c-.91 0-1.675.765-1.675 1.675v21.351c0 .91.765 1.675 1.675 1.675h11.52v-9.294h-3.136v-3.628h3.136v-2.685c0-3.127 1.877-4.89 4.796-4.89 1.388 0 2.863.255 2.863.255v3.137h-1.617c-1.56 0-2.043.963-2.043 1.937v2.375h3.487l-.557 3.628h-2.93v9.294h5.751c.91 0 1.675-.765 1.675-1.675v-21.351c0-.91-.765-1.675-1.675-1.675z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-[var(--light-green)] transition-colors"
+              aria-label="Twitter"
+            >
+              <!-- Twitter SVG (White) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="white"
+              >
+                <path
+                  d="M23.643 4.937c-.877.389-1.819.652-2.818.772 1.014-.606 1.792-1.563 2.164-2.723-.949.563-1.997.973-3.12 1.195-1.448-1.544-3.534-1.943-5.285-.97-1.755.97-2.526 2.876-2.048 4.723-4.384-.2-8.27-2.26-10.86-5.347-1.144 1.963-.616 4.515 1.283 5.956-.824-.026-1.607-.252-2.286-.628.019 2.501 1.86 4.692 4.426 5.183-1.153.317-2.486.122-3.332-.615.999 3.131 3.871 5.377 7.31 5.426-2.651 2.077-5.994 3.214-9.237 3.214-.599 0-1.188-.034-1.77-.102 3.351 2.142 7.29 3.389 11.332 3.389 13.598 0 21.058-11.16 21.058-20.847 0-.318 0-.633-.022-.947.868-.631 1.622-1.426 2.221-2.292z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="text-left mt-8 pt-6">
+          <p class="text-sm text-white">All rights Reserved © VitaEat, 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>

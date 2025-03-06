@@ -1,60 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Delivery Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body class="bg-gray-100 text-gray-900">
+    <style>
+      :root {
+        --light-green: #a9c46c;
+        --dark-green: #5d8736;
+        --cream: #f2efe7;
+        --dark-gray: #353535;
+      }
+      .add-more-btn {
+        background: linear-gradient(to right, var(--light-green), var(--dark-green));
+        color: black;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
 
-    <!-- Navbar -->
+      .add-more-btn:hover {
+        opacity: 0.8;
+      }
+      
+      .tab-btn {
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
     <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-        <div class="flex items-center gap-4">
-            <img src="public/vitaeats.png" alt="Vita Eats" class="h-12">
-            <div class="relative flex items-center">
-                <input type="text" id="searchInput" placeholder="search food" class="border rounded-lg p-2 text-sm w-64 pl-6" oninput="searchOrders()">
-                <button class="absolute right-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button>
-            </div>
+      <div class="flex items-center gap-4">
+        <img src="./images/vitaeats.jpg" alt="Vita Eats" class="h-12" />
+        <div class="relative flex items-center">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="search food"
+            class="border rounded-lg p-2 text-sm w-64 pl-6"
+            oninput="searchOrders()"
+          />
+          <button class="absolute right-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
         </div>
-        <div class="flex gap-8 items-center">
-            <a href="#" class="text-gray-700">Home</a>
-            <a href="#" class="text-gray-700">About US</a>
-            <a href="#" class="text-gray-700">Log In</a>
-            <a href="#" class="text-gray-700">Customise</a>
-            <div class="flex gap-4">
-                <button class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </button>
-                <button class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
-                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none" />
-                        <path stroke="currentColor" stroke-width="2" d="M6 18a6 6 0 0112 0" />
-                    </svg>
-                </button>
-            </div>
+      </div>
+      <div class="flex gap-8 items-center">
+        <a href="#" class="text-gray-700" onclick="window.location.href='home.html'">Home</a>
+        <a href="#" class="text-gray-700">About US</a>
+        <a href="#" class="text-gray-700">Log In</a>
+        <a href="#" class="text-gray-700">Customise</a>
+        <div class="flex gap-4">
+          <button class="relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <circle
+                cx="12"
+                cy="10"
+                r="3"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                stroke="currentColor"
+                stroke-width="2"
+                d="M6 18a6 6 0 0112 0"
+              />
+            </svg>
+          </button>
         </div>
+      </div>
     </nav>
 
-    <!-- Tabs -->
-    <div class="flex justify-center gap-4 mt-6">
-        <button class="bg-gray-200 px-4 py-2 rounded-lg">Overview</button>
-        <button class="bg-gray-200 px-4 py-2 rounded-lg">History</button>
-        <button class="bg-gray-200 px-4 py-2 rounded-lg" onclick="window.location.href='Calculate.html'">Calculator</button>
-        <button class="bg-green-500 text-white px-4 py-2 rounded-lg">Order</button>
+    <!-- Tabs and Add More Button Container -->
+    <div class="container mx-auto mt-6 p-4">
+        <div class="flex justify-between items-center">
+            <div class="flex space-x-4">
+                <button class="tab-btn bg-[#F2EFE7] text-gray-600" onclick="window.location.href='food delivery1.html'">Overview</button>
+                <button class="tab-btn bg-[#F2EFE7] text-gray-600" onclick="window.location.href='food delivery2.html'">History</button>
+                <button class="tab-btn bg-[#F2EFE7] text-gray-600" onclick="window.location.href='Calculate.html'">Calculator</button>
+                <button class="tab-btn bg-[var(--dark-green)] text-white">Order</button>
+            </div>
+        </div>
     </div>
-
-    <!-- Add More Button -->
-    <div class="max-w-5xl mx-auto mt-6">
-        <button class="bg-green-600 text-white px-4 py-2 rounded-lg" onclick="showAddOrderForm()">Add more</button>
+    
+    <!-- Add more button in a separate div for positioning -->
+    <div class="max-w-5xl mx-auto px-4 flex justify-end">
+        <button class="add-more-btn" onclick="showAddOrderForm()">Add more</button>
     </div>
 
     <!-- Add Order Form -->
@@ -75,16 +158,14 @@
             </select>
 
             <label class="block mt-4">Price (TND):</label>
-            <input type="number" min="0" step="1" placeholder="Enter the amount" class="w-full p-2 border rounded-lg">
+            <input type="number" id="orderPrice" min="0" step="1" placeholder="Enter the amount" class="w-full p-2 border rounded-lg">
 
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg mt-4" onclick="addOrder()">Add Order</button>
+            <button class="add-more-btn mt-4" onclick="addOrder()">Add Order</button>
             <button class="bg-red-600 text-white px-4 py-2 rounded-lg mt-4" onclick="closeAddOrderForm()">Cancel</button>
         </div>
     </div>
 
     <!-- Order List -->
-    <div class="max-w-5xl mx-auto mt-6 space-y-4" id="orderList">
-        <!-- Order List -->
     <div class="max-w-5xl mx-auto mt-6 space-y-4" id="orderList">
         <!-- Order Item -->
         <div class="order-item flex items-center bg-white p-4 rounded-lg shadow-md" data-name="Protein Bowl" data-price="46,25" data-time="15-20">
@@ -131,9 +212,6 @@
             </div>
             <p class="text-lg font-semibold">29,72 TND</p>
         </div>
-    </div>
-
-        <!-- Order Items will appear here -->
     </div>
 
     <script>
